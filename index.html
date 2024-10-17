@@ -5,11 +5,56 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Expenses App</title>
 
+		<link rel="stylesheet" href="reset.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet"
+		/>
 		<link rel="stylesheet" href="index.css" />
 
 		<script src="index.js" defer></script>
 	</head>
 	<body>
-		Приложение для учета расходов
+		<div class="expenses-app">
+			<div class="container">
+				<h1 class="expenses-app__title">Учет расходов</h1>
+				<div class="expenses-app__form-inner">
+					<form class="expenses-app__form form">
+						<label class="form__label">
+							<input
+								id="js-input"
+								class="form__input"
+								type="number"
+								placeholder="Сумма траты"
+							/>
+							<p class="form__label-prefix">руб.</p>
+						</label>
+						<button type="button" id="js-btn" class="form__btn">
+							Добавить
+						</button>
+					</form>
+					<div class="expenses-app__results-inner results">
+						<p class="results__title inner-title">
+							Лимит:
+							<span id="js-limit" class="results__text"></span>
+						</p>
+						<p class="results__title inner-title">
+							Сумма:
+							<span id="js-sum" class="results__text"> </span>
+						</p>
+						<p class="results__title inner-title">
+							Статус:
+							<span id="js-status" class="results__text status"> </span>
+						</p>
+					</div>
+					<div class="expenses-app__history-inner history">
+						<h2 class="history__title inner-title">История:</h2>
+						<ol id="js-history" class="history__list"></ol>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
