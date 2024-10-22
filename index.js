@@ -35,7 +35,7 @@ const trackExpense = expense => {
 
 //! функции получения
 const getExpenseFromUser = () => {
-	if (!inputNode) return null;
+	if (!inputNode.value) return null;
 	const expense = parseInt(inputNode.value);
 	return expense;
 };

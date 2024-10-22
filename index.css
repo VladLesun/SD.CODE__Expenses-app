@@ -25,23 +25,11 @@ p {
 }
 
 input {
-	border: none;
-	outline: none;
-	font-family: 'Inter', sans-serif;
-}
-
-button {
-	background-color: transparent;
-	border: none;
-	outline: none;
-	font-family: 'Inter', sans-serif;
-	cursor: pointer;
-}
-
-input {
 	width: 100%;
+	height: 100%;
 	border: none;
 	outline: none;
+	font-family: 'Inter', sans-serif;
 }
 input[type='number']::-webkit-outer-spin-button,
 input[type='number']::-webkit-inner-spin-button {
@@ -54,19 +42,233 @@ input[type='number']:focus {
 	-moz-appearance: textfield;
 }
 
+button {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	font-family: 'Inter', sans-serif;
+	cursor: pointer;
+}
+
+ol {
+	list-style: auto;
+	margin: 0;
+	padding-left: 40px;
+}
+
 .expenses-app {
 	padding: 50px 0;
 }
 
 .container {
-	max-width: 1150px;
+	max-width: 1180px;
 	padding: 0 15px;
 	margin: 0 auto;
 }
 
+.inner-title {
+	font-weight: 700;
+}
+
+.expenses-app__title {
+	margin-bottom: 40px;
+	font-weight: 700;
+	text-align: center;
+}
+
+.expenses-app__form-inner {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 60px;
+}
+
+/* ! Форма */
+.expenses-app__form {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-column: 1 / -1;
+}
+
+.form {
+	gap: 30px;
+}
+
+.form__label {
+	grid-column: 1 / 3;
+	position: relative;
+	width: 750px;
+	height: 60px;
+}
+
+.form__input {
+	padding: 10px 90px 10px 20px;
+	border: 1px solid black;
+	font-weight: 400;
+	font-size: 32px;
+}
+.form__input::placeholder {
+	transition: opacity 0.3s ease-in-out;
+}
+.form__input:focus::placeholder {
+	opacity: 0;
+}
+
+.form__label-prefix {
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	transform: translateY(-50%);
+}
+
+.form__select {
+	grid-column: 1 / 3;
+	width: 750px;
+	height: 60px;
+	padding: 10px 90px 10px 20px;
+	font-weight: 400;
+	font-size: 32px;
+	order: 2;
+}
+
+.form__btn {
+	width: 350px;
+	height: 60px;
+	padding: 0 20px;
+	background-color: #0094ff;
+	color: white;
+	font-weight: 400;
+	font-size: 32px;
+	transition: all 0.3s ease-in-out;
+}
+.form__btn:hover {
+	opacity: 0.5;
+}
+.form__btn:active {
+	opacity: 1;
+	background-color: aqua;
+	transform: scale(0.9);
+}
+
+/* ! Результаты трат */
+.expenses-app__results-inner {
+	grid-column: 1 / 2;
+}
+
+.results__text {
+	font-weight: 400;
+}
+.results__title_limit {
+	margin-bottom: 15px;
+}
+.results__btn-limit {
+	margin-left: 10px;
+	width: 42px;
+	height: 42px;
+	padding: 0;
+	transition: all 0.3s ease-in-out;
+}
+.results__btn-limit:hover {
+	opacity: 0.5;
+}
+.results__btn-limit:active {
+	opacity: 1;
+	transform: scale(0.9);
+}
+.results__title_sum {
+	margin-bottom: 35px;
+}
 .status {
 	color: green;
 }
 .status_red {
 	color: red;
+}
+
+/* ! История */
+.expenses-app__history-inner {
+	grid-column: 2 / 4;
+	/* width: 365px; */
+}
+.history__title {
+	margin-bottom: 20px;
+}
+
+/* ! кнопка сброса расходов */
+.expenses-app__reset-btn {
+	grid-column: 1 / 3;
+	width: 500px;
+	height: 60px;
+	padding: 0 20px;
+	background-color: #f00;
+	color: white;
+	font-weight: 400;
+	font-size: 32px;
+	transition: all 0.3s ease-in-out;
+}
+.expenses-app__reset-btn:hover {
+	opacity: 0.5;
+}
+.expenses-app__reset-btn:active {
+	opacity: 1;
+	background-color: #a11d1d;
+	transform: scale(0.9);
+}
+
+/* ! popup */
+.body_fixed {
+	overflow: hidden;
+}
+
+.popup {
+	position: fixed;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	visibility: hidden;
+	background-color: rgba(0, 0, 0, 0.7);
+	cursor: pointer;
+	transition: visibility 0.3s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.popup_open {
+	opacity: 1;
+	visibility: visible;
+}
+
+.popup__content {
+	position: relative;
+	width: 991px;
+	max-height: 100%;
+	padding: 40px 50px 230px;
+	background-color: white;
+	color: black;
+	overflow-y: auto;
+	cursor: auto;
+}
+
+.popup__title {
+	font-weight: 700;
+	margin-bottom: 150px;
+}
+
+.popup__form {
+	display: flex;
+}
+
+.popup__close {
+	position: absolute;
+	top: 40px;
+	right: 50px;
+	transition: all 0.3s ease-in-out;
+}
+.popup__close:hover {
+	opacity: 0.5;
+}
+.popup__close:active {
+	opacity: 1;
+	transform: scale(0.9);
 }
